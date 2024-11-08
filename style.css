@@ -304,3 +304,17 @@ button {
   font-weight: 600;
   color: #686868;
 }
+
+Input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: #00000000;
+}
+
+a:focus,
+a:visited,
+a:active {
+  outline: none;
+}
