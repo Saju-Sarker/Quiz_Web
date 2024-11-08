@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.mobile-size {
+  position: relative;
+  height: auto;
+  width: 340px;
+  background: #f4f4f4;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 5px 5px 5px #909090, -5px -5px 10px #fff;
+  display: none;
+  z-index: 1;
+  transition: all 1s;
+}
+
+.start {
+  height: 610px;
+  width: 340px;
+  background: #e5e4e4;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #909090, -5px -5px 5px #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: 2;
+}
+
+.start p {
+  position: relative;
+  bottom: 80px;
+  font-weight: 600;
+  color: #555555;
+}
+
+.start pre {
+  font-size: 35px;
+  font-weight: 600;
+  font-family: Oswald;
+  color: #4e4e4e;
+  position: relative;
+  bottom: 10px;
+  text-shadow: 5px 5px 5px #909090, -5px -5px 5px #fff;
+}
+
+.start button {
+  height: 40px;
+  width: 150px;
+  border: none;
+  background: #303030;
+  border-radius: 15px;
+  color: white;
+  position: relative;
+  top: 70px;
+  box-shadow: 5px 5px 5px #909090, -5px -5px 5px #ffffff;
+  cursor: pointer;
+  font-weight: 550;
+}
+
+.icon {
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.icon button {
+  border: none;
+  background-color: #f4f4f4;
+  margin-left: 10px;
+  height: 1rem;
+  width: 1rem;
+  font-size: 1.2rem;
+  color: #adadad;
+  margin-top: 2rem;
+}
+
+.task {
+  height: 9rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  position: relative;
+  padding: 20px;
+  margin-bottom: 3rem;
+  min-width: 230px;
+  --scroll-go: 10;
+}
+
+.task::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 100%;
+  background: #b4b4b446;
+  bottom: -20px;
+  left: 0;
+  border-radius: 1rem;
+}
+
+.task::after {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 100%;
+  background: #4aff39;
+  bottom: -20px;
+  left: -100%;
+  border-radius: 1rem;
+  transform: translateX(calc(var(--scroll-go) * 1%));
+  transition: all 0.5s ease-out;
+}
+
+.task .question {
+  height: 6.1rem;
+  font-size: 20px;
+  font-weight: 600;
+  color: #363636;
+  overflow-y: auto;
+  padding-top: 5px;
+}
+
+.task .steps {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+
+.task .steps #fPre {
+  font-weight: 650;
+  display: flex;
+}
+
+.task .steps #sPre {
+  font-weight: 440;
+  color: #717171;
+}
+
+.options {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5.5rem;
+  margin-bottom: 7rem;
+}
+
+.options .optBox {
+  height: 45px;
+  width: 17rem;
+  min-width: 14rem;
+  margin-bottom: 10px;
+  border: 2px solid #909090;
+  border-radius: 15px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 6;
+  transition: all 0.4s;
+}
+
+.options .optBox h3 {
+  margin: 0 20px 0 15px;
+  height: 30px;
+  width: 30px;
+  background: #767676b0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 4;
+}
+
+.options .optBox p {
+  font-size: 15px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  z-index: 5;
+}
+
+.next {
+  position: absolute;
+  bottom: 0;
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
+
+.next button {
+  height: 3rem;
+  width: 85%;
+  border-radius: 15px;
+  border: none;
+  background: #313131;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: url("right-ar.png"), auto;
+}
+
+@media (max-width: 430px) {
+  .mobile-size {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+  }
+}
+
+@media (min-height: 800px) {
+  .options {
+    height: 400px;
+    margin-top: 2rem;
+  }
+  .options .optBox {
+    height: 60px;
+    margin-bottom: 1px;
+  }
+}
+
+button:disabled {
+  background: transparent;
+  color: #000;
+}
+
+button {
+  outline: none; /* Remove the blue outline */
+  box-shadow: none; /* Remove any box shadow, if applied */
+}
+
+.result {
+  display: none;
+  height: 500px;
+  background: #e7e7e7;
+  width: 320px;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px #666666b6, -5px -5px 10px white;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.result p:nth-child(1) {
+  color: #39f6ec9c;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: Oswald;
+}
+
+.result p:nth-child(2) {
+  color: #878686;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: Oswald;
+  margin: 1rem;
+}
+
+.result div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result div span {
+  font-weight: 630;
+  font: 1em sans-serif;
+  font-family: Oswald;
+  font-size: 60px;
+  color: white;
+  text-shadow: 5px 5px 5px #909090, -4px -4px 5px #fff;
+}
+
+.result div pre {
+  margin-top: 15px;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #686868;
+}
